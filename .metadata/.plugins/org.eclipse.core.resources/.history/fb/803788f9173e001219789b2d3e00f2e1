@@ -1,0 +1,31 @@
+
+public class Miniteste {
+
+	private static final Object FELIZ = null;
+	private Object meuHumor;
+
+	public double calculaPrecoVenda(Venda venda) {
+		double resultado = 0.0;
+		double desconto = venda.getDesconto();
+		//Calcula o preço dos itens
+		for(Item item : venda.getItens()) {
+		Produto produto = (Produto) item.getProduto();
+		TabelaPreco tp = produto.getTabelaPrecoVigente();
+
+		
+		if (venda.getCliente().getUF().equals("PB") && meuHumor == FELIZ) {
+		resultado += tp.getPrecoEstadual() * ( 1 - desconto);
+		} else {
+		resultado += tp.getPrecoExterno();
+		}
+		}
+
+		//Adiciona frete
+		Transportador t = venda.getTransportador();
+		resultado += t.getFrete();
+
+		//Adiciona seguro
+		resultado += venda.getTaxaSeguro() * resultado;
+		return resultado;
+		}
+}
