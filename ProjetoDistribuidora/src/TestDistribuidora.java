@@ -5,69 +5,55 @@ import junit.framework.Assert;
 import org.junit.Test;
 
 
-
-
 public class TestDistribuidora {
-	  
-	  
-	   private Funcionario funcionario;
-	   private Produto produto;
-	   private Fornecedor fornecedor1;
-	   private Bebidas bebida;
-	   private Distribuidora distribuidora;
-	
-	  
-	   
+
+ 
+
 	  @Before
 	   public  void setUp(){
-		   
-		  this.fornecedor1 = new Fornecedor();
-	      this.funcionario = new Funcionario();
-	      this.produto = new Produto();
-	   
-	       
+
+	     new Fornecedor();
+	     new Funcionario();
+	     new Produto();
+
+
 	    }
-	   
+
 		@Test
 		public void testAddCliente(){
 			Cliente cliente= new Cliente();
 		    Distribuidora distribuidora = new Distribuidora();
 			cliente.setNome("Dan");
 			cliente.setCnpj("001");
-			cliente.setNome("Iza");
-			cliente.setCnpj("002");
 			distribuidora.addCliente(cliente);
 			Assert.assertNotNull(cliente.getNome());
+			Assert.assertEquals("Dan", distribuidora.pesquisarCliente("001"));
+
 		}
-		
+
 		@Test
 		public void testRemoverCliente(){	
 			Cliente cliente= new Cliente();
 		    Distribuidora distribuidora = new Distribuidora();
 			cliente.setNome("Dan");
 			cliente.setCnpj("001");
-			cliente.setNome("Iza");
-			cliente.setCnpj("002");
 			distribuidora.addCliente(cliente);
-			distribuidora.removerCliente("Dan");
 			distribuidora.removerCliente("001");
 			Assert.assertNotNull(cliente.getNome());
-			
+
 		}
-		   
+
 		@Test 
 		public void testPesquisarCliente(){
 			Cliente cliente1 = new Cliente();
 			Distribuidora distribuidora= new Distribuidora();
 			cliente1.setNome("Dan");
 			cliente1.setCnpj("001");
-			cliente1.setNome("Iza");
-			cliente1.setCnpj("002");
 			distribuidora.addCliente(cliente1);
 			Assert.assertNotNull(cliente1.getCnpj());
-			Assert.assertEquals(null, distribuidora.pesquisarCliente("001"));
-			
-		
+			Assert.assertEquals("Dan", distribuidora.pesquisarCliente("001"));
+
+
 		}    
 		@Test
 		public void testAddFuncinario(){
@@ -78,7 +64,7 @@ public class TestDistribuidora {
 			Assert.assertNotNull(funcionario.getNome());
 			Assert.assertEquals(null, distribuidora.pesquisarFuncionario(funcionario.getNome()));
 		}
-		
+
 		@Test
 		public void testRemoverFuncionario(){	
 			Funcionario funcionario = new Funcionario();
@@ -87,24 +73,22 @@ public class TestDistribuidora {
 			distribuidora.addFuncionario(funcionario);
 			distribuidora.removerFuncionario("Joao");
 			Assert.assertNotNull(funcionario.getNome());
-			
+
 		}
-		
+
 		@Test
 		public void testPesquisarFuncionario(){
 			Funcionario funcionario1 = new Funcionario();
 			Distribuidora distribuidora= new Distribuidora();
 			funcionario1.setNome("Joao");
 			funcionario1.setCpf("100");
-			funcionario1.setNome("Antonio");
-			funcionario1.setCpf("200");
 			distribuidora.addFuncionario(funcionario1);
 			Assert.assertNotNull(funcionario1.getCpf());
-			Assert.assertEquals(null, distribuidora.pesquisarFuncionario("100"));
-			
-			
+			Assert.assertEquals("Joao", distribuidora.pesquisarFuncionario("100"));
+
+
 		}
-		
+
 		@Test
 		public void testAddFornecedor(){
 			Fornecedor fornecedor = new Fornecedor();
@@ -114,9 +98,9 @@ public class TestDistribuidora {
 		    distribuidora.addFornecedor(fornecedor);
 		    Assert.assertNotNull(fornecedor.getNome());
 			Assert.assertEquals(null, distribuidora.pesquisarFornecedor(fornecedor.getNome()));
-			
+
 	    }
-		
+
 		@Test
 		public void testRemoverFornecedor(){
 			Fornecedor fornecedor = new Fornecedor();
@@ -125,23 +109,21 @@ public class TestDistribuidora {
 		    distribuidora.addFornecedor(fornecedor);
 		    distribuidora.removerFornecedor("Arroz e cia");
 			Assert.assertNotNull(fornecedor.getNome());
-				
+
 		}
-		
+
 		@Test
 		public void testPesquisarFornecedor(){
 			Fornecedor fornecedor1 = new Fornecedor();
 			Distribuidora distribuidora= new Distribuidora();
 			fornecedor1.setNome("Arroz e cia");
 			fornecedor1.setCnpj("001");
-			fornecedor1.setNome("Feijao e cia");
-			fornecedor1.setCnpj("002");
 			distribuidora.addFornecedor(fornecedor1);
 			Assert.assertNotNull(fornecedor1.getCnpj());
-			Assert.assertEquals(null, distribuidora.pesquisarFornecedor("001"));
-			
+			Assert.assertEquals("Arroz e cia", distribuidora.pesquisarFornecedor("001"));
+
 		}
-		
+
 	    @Test
 	    public void testAddAlimento(){
 	    	Alimentos alimentos = new Alimentos();
@@ -150,10 +132,10 @@ public class TestDistribuidora {
 		    distribuidora.addAlimentos(alimentos);
 		    Assert.assertNotNull(alimentos.getNome());
 			Assert.assertEquals(null, distribuidora.pesquisarAlimentos(alimentos.getNome()));
-			
-		    
+
+
 	    }
-	    
+
 	    @Test
 	    public void testRemoverAlimento(){
 	    	Alimentos alimentos = new Alimentos();
@@ -162,7 +144,7 @@ public class TestDistribuidora {
 		    distribuidora.addAlimentos(alimentos);
 		    distribuidora.removerAlimentos("Arroz");
 			Assert.assertNotNull(alimentos.getNome());
-	    	
+
 	    }
 	    @Test
 	    public void testPesquisarAlimento(){
@@ -173,10 +155,10 @@ public class TestDistribuidora {
 			alimentos1.setCodigo("1212");
 			distribuidora.addAlimentos(alimentos1);
 			Assert.assertNotNull(alimentos1.getCodigo());
-			Assert.assertEquals(null, distribuidora.pesquisarAlimentos("1212"));
-			
+			Assert.assertEquals("Arroz", distribuidora.pesquisarAlimentos("1212"));
+
 	    }
-	    
+
 	    @Test
 	    public void testAddBebidas(){
 	    	Bebidas bebidas = new Bebidas();
@@ -184,10 +166,10 @@ public class TestDistribuidora {
 			bebidas.setNome("Coca cola");
 		    distribuidora.addBebidas(bebidas);
 		    Assert.assertNotNull(bebidas.getNome());
-			Assert.assertEquals(null, distribuidora.pesquisarBebidas(bebidas.getNome()));
-			
+			Assert.assertEquals("Coca cola", distribuidora.pesquisarBebidas(bebidas.getNome()));
+
 	    }
-	   
+
 	    @Test
 	    public void testRemoverBebidas(){ 
 	    	Bebidas bebidas = new Bebidas();
@@ -196,9 +178,9 @@ public class TestDistribuidora {
 		    distribuidora.addBebidas(bebidas);
 		    distribuidora.removerBebidas("Coca cola");
 			Assert.assertNotNull(bebidas.getNome());
-	    	
+
 	    }
-	 
+
 	    @Test
 	    public void testPesquisarBebidas(){
 			Bebidas bebidas1 = new Bebidas();
@@ -207,9 +189,8 @@ public class TestDistribuidora {
 			bebidas1.setCodigo("9898");
 			distribuidora.addBebidas(bebidas1);
 			Assert.assertNotNull(bebidas1.getCodigo());
-			Assert.assertEquals(null, distribuidora.pesquisarBebidas("100"));
-			
-			
+			Assert.assertEquals("Coca cola", distribuidora.pesquisarBebidas("100"));
+
+
 		}
-		
-}
+
