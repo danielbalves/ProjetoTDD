@@ -8,21 +8,18 @@ import org.junit.Test;
 public class TestDistribuidora {
 
  
-
+	Distribuidora distribuidora;
+	
 	  @Before
 	   public  void setUp(){
 
-	     new Fornecedor();
-	     new Funcionario();
-	     new Produto();
-
+  	       distribuidora = new Distribuidora();
 
 	    }
 
 		@Test
 		public void testAddCliente(){
 			Cliente cliente= new Cliente();
-		    Distribuidora distribuidora = new Distribuidora();
 			cliente.setNome("Dan");
 			cliente.setCnpj("001");
 			distribuidora.addCliente(cliente);
