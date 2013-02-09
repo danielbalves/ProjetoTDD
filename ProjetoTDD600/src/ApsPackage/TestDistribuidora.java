@@ -37,7 +37,7 @@ public class TestDistribuidora {
 		Funcionario funcionario= new Funcionario();
 		funcionario.setNome("Antonio Silva");
 		funcionario.setBairro("Centro");
-		funcionario.setCidade("João Pessoa");
+		funcionario.setCidade("Joï¿½o Pessoa");
 		funcionario.setCpf("0111");
 		funcionario.setEstado("PB");
 		funcionario.setRua("Rua Castro Alves");
@@ -47,7 +47,6 @@ public class TestDistribuidora {
 
 		return funcionario;
 
-
 	}
 
 
@@ -55,8 +54,8 @@ public class TestDistribuidora {
 		Fornecedor fornecedor = new Fornecedor();
 		fornecedor.setNome("Arroz e cia");
 		fornecedor.setCnpj("003");
-		fornecedor.setRua("Rua José Horácio");
-		fornecedor.setBairro("Industriários");
+		fornecedor.setRua("Rua Josï¿½ Horï¿½cio");
+		fornecedor.setBairro("Industriï¿½rios");
 		fornecedor.setCidade("Fortaleza");
 		fornecedor.setEstado("CE");
 		fornecedor.setNumero(567);
@@ -73,12 +72,10 @@ public class TestDistribuidora {
 		item.setCodigo("001");
 		item.setDataFab("01/01/2013");
 		item.setDataVenc("30/10/2015");
-		item.setFabricante("São Braz");
+		item.setFabricante("Sï¿½o Braz");
 
 		
 		distribuidora.addAlimentos(item);
-
-
 
 		return item;
 	}
@@ -86,17 +83,15 @@ public class TestDistribuidora {
 	private Alimento criaAlimento2(){
 
 		Alimento item = new Alimento();
-		item.setNome("Feijão");
+		item.setNome("Feijï¿½o");
 		item.setCategoria("Graos");
 		item.setCodigo("003");
 		item.setDataFab("01/01/2013");
 		item.setDataVenc("30/10/2015");
-		item.setFabricante("São Braz");
+		item.setFabricante("Sï¿½o Braz");
 
 		
 		distribuidora.addAlimentos(item);
-
-
 
 		return item;
 	}
@@ -141,7 +136,7 @@ public class TestDistribuidora {
 		cliente.setEstado("PB");
 		cliente.setNumero(104); 
 		
-		
+	
 		distribuidora.addCliente(cliente);
 
 		Assert.assertEquals(cliente, distribuidora.pesquisarCliente("001"));
@@ -230,7 +225,6 @@ public class TestDistribuidora {
 		distribuidora.addCliente(cliente1);
 		Assert.assertEquals(cliente1, distribuidora.pesquisarCliente("001"));
 
-
 	}    
 	
 	
@@ -240,7 +234,7 @@ public class TestDistribuidora {
 		Funcionario funcionario= new Funcionario();
 		funcionario.setNome("Antonio Silva");
 		funcionario.setBairro("Centro");
-		funcionario.setCidade("João Pessoa");
+		funcionario.setCidade("Joï¿½o Pessoa");
 		funcionario.setCpf("0111");
 		funcionario.setEstado("PB");
 		funcionario.setRua("Rua Castro Alves");
@@ -267,7 +261,6 @@ public class TestDistribuidora {
 		Funcionario funcionario= criarFuncionarioPadrao();
 		funcionario.setBairro(null);
 		distribuidora.addFuncionario(funcionario);
-
 
 	}
 
@@ -356,8 +349,8 @@ public class TestDistribuidora {
 		Fornecedor fornecedor = new Fornecedor();
 		fornecedor.setNome("Arroz e cia");
 		fornecedor.setCnpj("003");
-		fornecedor.setRua("Rua José Horácio");
-		fornecedor.setBairro("Industriários");
+		fornecedor.setRua("Rua Josï¿½ Horï¿½cio");
+		fornecedor.setBairro("Industriï¿½rios");
 		fornecedor.setCidade("Fortaleza");
 		fornecedor.setEstado("CE");
 		fornecedor.setNumero(567);
@@ -436,7 +429,6 @@ public class TestDistribuidora {
 		distribuidora.removerFornecedor("003");
 		Assert.assertNull(distribuidora.pesquisarFornecedor("003"));
 
-
 	}
 
 	
@@ -462,7 +454,7 @@ public class TestDistribuidora {
 		alimentos.setCodigo("001");
 		alimentos.setDataFab("01/01/2013");
 		alimentos.setDataVenc("30/10/2015");
-		alimentos.setFabricante("São Braz");
+		alimentos.setFabricante("Sï¿½o Braz");
 		distribuidora.addAlimentos(alimentos);
 		Assert.assertNotNull(alimentos.getNome());
 		Assert.assertEquals(alimentos, distribuidora.pesquisarAlimentos("001"));
@@ -498,7 +490,6 @@ public class TestDistribuidora {
 		Alimento alimentos = criaAlimento1();
 		alimentos.setCodigo(null);
 		distribuidora.addAlimentos(alimentos);
-
 
 	}
 
@@ -543,7 +534,6 @@ public class TestDistribuidora {
 		distribuidora.addAlimentos(alimentos);
 		distribuidora.removerAlimentos("001");
 		Assert.assertNull(distribuidora.pesquisarAlimentos("001"));
-
 
 	}
 	
@@ -646,7 +636,6 @@ public class TestDistribuidora {
 		distribuidora.addBebidas(bebidas);
 		distribuidora.removerBebidas("002");
 		Assert.assertNull(distribuidora.pesquisarBebidas("002"));
-
 
 	}
 
